@@ -38,6 +38,7 @@ export const theme = extendTheme({
           container: {
             _focusWithin: {
               label: {
+                backgroundColor: "gray.800",
                 ...activeLabelStyles,
               },
             },
@@ -50,7 +51,7 @@ export const theme = extendTheme({
               left: 0,
               zIndex: 2,
               position: "absolute",
-              backgroundColor: "gray.800",
+              backgroundColor: "gray.900",
               pointerEvents: "none",
               mx: 3,
               px: 1,
