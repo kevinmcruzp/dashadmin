@@ -90,7 +90,8 @@ export default function Dashboard() {
                 options={options}
                 series={series}
                 type="area"
-                height={160}
+                height={170}
+                width={isWideVersion ? "350px" : "300px"}
               />
             </Flex>
           </Box>
@@ -103,7 +104,8 @@ export default function Dashboard() {
                 options={options}
                 series={series}
                 type="area"
-                height={160}
+                height={170}
+                width={isWideVersion ? "350px" : "300px"}
               />
             </Flex>
           </Box>
