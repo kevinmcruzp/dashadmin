@@ -75,9 +75,104 @@ export default function UserList() {
           <Spinner />
         </Flex>
       ) : error ? (
-        <Flex justify="center">
-          <Text>Falha ao obter dados dos usuarios.</Text>
-        </Flex>
+        // <Flex justify="center">
+        //   <Text>Falha ao obter dados dos usuarios.</Text>
+        // </Flex>
+        <Table colorScheme="whiteAlpha">
+          <Thead>
+            <Tr>
+              <Th px={["4", "4", "6"]} color="gray.300" width="8">
+                <Checkbox colorScheme="pink" />
+              </Th>
+              <Th>Usuário</Th>
+              {isWideVersion && <Th>Data de cadastro</Th>}
+              <Th width="8"></Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            <Tr>
+              <Td px={["4", "4", "6"]}>
+                <Checkbox colorScheme="pink" />
+              </Td>
+              <Td>
+                <Box>
+                  <Link color="purple.400">
+                    <Text fontWeight="bold">Kevin Cruz</Text>
+                  </Link>
+                  <Text fontSize="sm" color="gray.300">
+                    kevin@email.com
+                  </Text>
+                </Box>
+              </Td>
+              {isWideVersion && <Td>25 feb 96</Td>}
+              <Td>
+                <Button
+                  as="a"
+                  size="sm"
+                  colorScheme="purple"
+                  leftIcon={<Icon as={RiPencilLine} fontSize="17" />}
+                  cursor="pointer"
+                >
+                  {isWideVersion ? "Editar" : ""}
+                </Button>
+              </Td>
+            </Tr>
+            <Tr>
+              <Td px={["4", "4", "6"]}>
+                <Checkbox colorScheme="pink" />
+              </Td>
+              <Td>
+                <Box>
+                  <Link color="purple.400">
+                    <Text fontWeight="bold">Kevin Cruz</Text>
+                  </Link>
+                  <Text fontSize="sm" color="gray.300">
+                    kevin@email.com
+                  </Text>
+                </Box>
+              </Td>
+              {isWideVersion && <Td>25 feb 96</Td>}
+              <Td>
+                <Button
+                  as="a"
+                  size="sm"
+                  colorScheme="purple"
+                  leftIcon={<Icon as={RiPencilLine} fontSize="17" />}
+                  cursor="pointer"
+                >
+                  {isWideVersion ? "Editar" : ""}
+                </Button>
+              </Td>
+            </Tr>
+            <Tr>
+              <Td px={["4", "4", "6"]}>
+                <Checkbox colorScheme="pink" />
+              </Td>
+              <Td>
+                <Box>
+                  <Link color="purple.400">
+                    <Text fontWeight="bold">Kevin Cruz</Text>
+                  </Link>
+                  <Text fontSize="sm" color="gray.300">
+                    kevin@email.com
+                  </Text>
+                </Box>
+              </Td>
+              {isWideVersion && <Td>25 feb 96</Td>}
+              <Td>
+                <Button
+                  as="a"
+                  size="sm"
+                  colorScheme="purple"
+                  leftIcon={<Icon as={RiPencilLine} fontSize="17" />}
+                  cursor="pointer"
+                >
+                  {isWideVersion ? "Editar" : ""}
+                </Button>
+              </Td>
+            </Tr>
+          </Tbody>
+        </Table>
       ) : (
         <>
           <Table colorScheme="whiteAlpha">
