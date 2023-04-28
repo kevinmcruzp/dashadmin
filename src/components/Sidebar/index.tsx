@@ -37,7 +37,7 @@ export function Sidebar() {
   }
 
   return (
-    <Box as="aside" w="64" mr="8">
+    <Box as="aside" w="64" mr="8" height="100vh" position="sticky">
       <SidebarNav />
     </Box>
   );

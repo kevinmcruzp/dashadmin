@@ -16,7 +16,7 @@ export function Header() {
       as="header"
       w="100%"
       maxW={1480}
-      h="20"
+      h="65px"
       mx="auto"
       mt="4"
       px="6"

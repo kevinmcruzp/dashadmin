@@ -1,4 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
+import { format, parseISO } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { api } from "../api";
 
 type User = {
@@ -27,10 +29,8 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
       id: user.id,
       name: user.name,
       email: user.email,
-      createdAt: new Date(user.createdAt).toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
+      createdAt: format(parseISO(user.created_at), "d MMM yy", {
+        locale: ptBR,
       }),
     };
   });
