@@ -1,20 +1,20 @@
-import { Stack } from "@chakra-ui/react";
-import { RiContactsLine, RiDashboardLine } from "react-icons/ri";
-import { NavLink } from "./NavLink";
-import { NavSection } from "./NavSection";
+import { Stack } from '@chakra-ui/react'
+import { RiContactsLine, RiDashboardLine } from 'react-icons/ri'
+import { NavLink } from './NavLink'
+import { NavSection } from './NavSection'
 
-export function SidebarNav() {
+export function SidebarNav () {
   return (
-    <Stack spacing="12" align="flex-start">
-      <NavSection title="GERAL">
-        <NavLink href="/dashboard" icon={RiDashboardLine}>
+    <Stack spacing='12' align='flex-start'>
+      <NavSection title='GERAL'>
+        <NavLink href='/dashboard' icon={RiDashboardLine}>
           Dashboard
         </NavLink>
-        <NavLink href="/users" icon={RiContactsLine}>
+        <NavLink href='/users' icon={RiContactsLine}>
           Usuários
         </NavLink>
       </NavSection>
-      <NavSection title="AUTOMAÇÃO">
+      <NavSection title='AUTOMAÇÃO'>
         {/* <NavLink href="/forms" icon={RiInputMethodLine}>
           Formulários
         </NavLink>
@@ -23,5 +23,5 @@ export function SidebarNav() {
         </NavLink> */}
       </NavSection>
     </Stack>
-  );
+  )
 }
