@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
-    "miragejs"
-  ]
+    "miragejs",
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
