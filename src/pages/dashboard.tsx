@@ -129,11 +129,23 @@ export default function Dashboard () {
   return (
     <Box
       flex='1'
+      overflow='auto'
+      __css={{
+        '&::-webkit-scrollbar': {
+          w: '2'
+        },
+        '&::-webkit-scrollbar-track': {
+          w: '6'
+        },
+        '&::-webkit-scrollbar-thumb': {
+          borderRadius: '10',
+          bg: '#4A5568'
+        }
+      }}
     >
       <SimpleGrid
         h='100%'
         w='100%'
-        overflow='auto'
         gap='4'
         minChildWidth='420px'
         alignContent='flex-start'

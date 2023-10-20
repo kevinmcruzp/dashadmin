@@ -48,7 +48,25 @@ export default function UserList () {
   }
 
   return (
-    <Box width='100%' borderRadius={8} bg='gray.800' p='8' overflowY='auto'>
+    <Box
+      width='100%'
+      borderRadius={8}
+      bg='gray.800'
+      p='8'
+      overflowY='auto'
+      __css={{
+        '&::-webkit-scrollbar': {
+          w: '2'
+        },
+        '&::-webkit-scrollbar-track': {
+          w: '6'
+        },
+        '&::-webkit-scrollbar-thumb': {
+          borderRadius: '10',
+          bg: '#4A5568'
+        }
+      }}
+    >
       <Flex mb='8' justify='space-between' align='center'>
         <Heading size='lg' fontWeight='normal'>
           Usuarios
