@@ -302,6 +302,7 @@ export default function Dashboard () {
               series={userRegisterSeries}
               type='area'
               height={220}
+              width='100%'
             />
           </Box>
         </GridItem>
@@ -322,6 +323,7 @@ export default function Dashboard () {
               series={totalUserSeries}
               type='donut'
               height={220}
+              width='100%'
             />
           </Box>
         </GridItem>

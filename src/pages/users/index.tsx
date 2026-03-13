@@ -26,7 +26,7 @@ import { queryClient } from '../../services/queryClient'
 
 export default function UserList () {
   const [page, setPage] = useState(1)
-  const { data, isLoading, isFetching, error } = useUsers(page)
+  const { data, isLoading, isFetching } = useUsers(page)
 
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -94,8 +94,8 @@ export default function UserList () {
             <Spinner />
           </Flex>
           )
-        : error
-          ? (
+        : (
+          <>
             <Table colorScheme='whiteAlpha'>
               <Thead>
                 <Tr>
@@ -108,149 +108,51 @@ export default function UserList () {
                 </Tr>
               </Thead>
               <Tbody>
-                <Tr>
-                  <Td px={['4', '4', '6']}>
-                    <Checkbox colorScheme='pink' />
-                  </Td>
-                  <Td>
-                    <Box>
-                      <Link color='purple.400'>
-                        <Text fontWeight='bold'>Kevin Cruz</Text>
-                      </Link>
-                      <Text fontSize='sm' color='gray.300'>
-                        kevin@email.com
-                      </Text>
-                    </Box>
-                  </Td>
-                  {isWideVersion && <Td>25 feb 96</Td>}
-                  <Td>
-                    <Button
-                      as='a'
-                      size='sm'
-                      colorScheme='purple'
-                      leftIcon={<Icon as={RiPencilLine} fontSize='17' />}
-                      cursor='pointer'
-                    >
-                      {isWideVersion ? 'Editar' : ''}
-                    </Button>
-                  </Td>
-                </Tr>
-                <Tr>
-                  <Td px={['4', '4', '6']}>
-                    <Checkbox colorScheme='pink' />
-                  </Td>
-                  <Td>
-                    <Box>
-                      <Link color='purple.400'>
-                        <Text fontWeight='bold'>Kevin Cruz</Text>
-                      </Link>
-                      <Text fontSize='sm' color='gray.300'>
-                        kevin@email.com
-                      </Text>
-                    </Box>
-                  </Td>
-                  {isWideVersion && <Td>25 feb 96</Td>}
-                  <Td>
-                    <Button
-                      as='a'
-                      size='sm'
-                      colorScheme='purple'
-                      leftIcon={<Icon as={RiPencilLine} fontSize='17' />}
-                      cursor='pointer'
-                    >
-                      {isWideVersion ? 'Editar' : ''}
-                    </Button>
-                  </Td>
-                </Tr>
-                <Tr>
-                  <Td px={['4', '4', '6']}>
-                    <Checkbox colorScheme='pink' />
-                  </Td>
-                  <Td>
-                    <Box>
-                      <Link color='purple.400'>
-                        <Text fontWeight='bold'>Kevin Cruz</Text>
-                      </Link>
-                      <Text fontSize='sm' color='gray.300'>
-                        kevin@email.com
-                      </Text>
-                    </Box>
-                  </Td>
-                  {isWideVersion && <Td>25 feb 96</Td>}
-                  <Td>
-                    <Button
-                      as='a'
-                      size='sm'
-                      colorScheme='purple'
-                      leftIcon={<Icon as={RiPencilLine} fontSize='17' />}
-                      cursor='pointer'
-                    >
-                      {isWideVersion ? 'Editar' : ''}
-                    </Button>
-                  </Td>
-                </Tr>
+                {data?.users?.map((user) => {
+                  return (
+                    <Tr key={user.id}>
+                      <Td px={['4', '4', '6']}>
+                        <Checkbox colorScheme='pink' />
+                      </Td>
+                      <Td>
+                        <Box>
+                          <Link
+                            color='purple.400'
+                            onMouseEnter={() => {
+                              handlePrefetchUser(user.id)
+                            }}
+                          >
+                            <Text fontWeight='bold'>{user.name}</Text>
+                          </Link>
+                          <Text fontSize='sm' color='gray.300'>
+                            {user.email}
+                          </Text>
+                        </Box>
+                      </Td>
+                      {isWideVersion && <Td>{user.createdAt}</Td>}
+                      <Td>
+                        <Button
+                          as='a'
+                          size='sm'
+                          colorScheme='purple'
+                          leftIcon={<Icon as={RiPencilLine} fontSize='17' />}
+                          cursor='pointer'
+                        >
+                          {isWideVersion ? 'Editar' : ''}
+                        </Button>
+                      </Td>
+                    </Tr>
+                  )
+                })}
               </Tbody>
             </Table>
-            )
-          : (
-            <>
-              <Table colorScheme='whiteAlpha'>
-                <Thead>
-                  <Tr>
-                    <Th px={['4', '4', '6']} color='gray.300' width='8'>
-                      <Checkbox colorScheme='pink' />
-                    </Th>
-                    <Th>Usuário</Th>
-                    {isWideVersion && <Th>Data de cadastro</Th>}
-                    <Th width='8' />
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {data?.users?.map((user) => {
-                    return (
-                      <Tr key={user.id}>
-                        <Td px={['4', '4', '6']}>
-                          <Checkbox colorScheme='pink' />
-                        </Td>
-                        <Td>
-                          <Box>
-                            <Link
-                              color='purple.400'
-                              onMouseEnter={() => {
-                                handlePrefetchUser(user.id)
-                              }}
-                            >
-                              <Text fontWeight='bold'>{user.name}</Text>
-                            </Link>
-                            <Text fontSize='sm' color='gray.300'>
-                              {user.email}
-                            </Text>
-                          </Box>
-                        </Td>
-                        {isWideVersion && <Td>{user.createdAt}</Td>}
-                        <Td>
-                          <Button
-                            as='a'
-                            size='sm'
-                            colorScheme='purple'
-                            leftIcon={<Icon as={RiPencilLine} fontSize='17' />}
-                            cursor='pointer'
-                          >
-                            {isWideVersion ? 'Editar' : ''}
-                          </Button>
-                        </Td>
-                      </Tr>
-                    )
-                  })}
-                </Tbody>
-              </Table>
-              <Pagination
-                totalCountOfRegisters={data.totalCount}
-                currentPage={page}
-                onPageChange={setPage}
-              />
-            </>
-            )}
+            <Pagination
+              totalCountOfRegisters={data.totalCount}
+              currentPage={page}
+              onPageChange={setPage}
+            />
+          </>
+          )}
     </Box>
   )
 }
